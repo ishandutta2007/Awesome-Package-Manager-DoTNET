@@ -60,7 +60,7 @@ Whether you are seeking **private NuGet hosting**, **self-hosted artifact storag
 
 ## 💻 Open-Source Repositories & Tools
 
-All open-source repositories below are sorted in **descending order by GitHub Star Count** ⭐.
+All open-source repositories below are sorted in **descending order by GitHub Stars_Count** ⭐.
 
 ### 🚀 Universal & Cross-Language Registries
 
@@ -173,7 +173,7 @@ All open-source repositories below are sorted in **descending order by GitHub St
 
 1. **Fork** the repository. 🍴
 2. **Add/Edit entries** in `README.md` following the table or list format. ✏️
-3. Ensure links, licenses, and star counts are accurate. 🎯
+3. Ensure links, licenses, and Stars_Counts are accurate. 🎯
 4. Submit a **Pull Request** with a clear explanation! 🚀
 
 ---
