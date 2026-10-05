@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Keyframe Animations -->
+    <style>
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-12px) rotate(1deg); }
+      }
+      @keyframes floatFast {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.8; }
+      }
+      @keyframes dashMove {
+        0% { stroke-dashoffset: 100; }
+        100% { stroke-dashoffset: 0; }
+      }
+      .floating-card-1 { animation: floatSlow 7s ease-in-out infinite; }
+      .floating-card-2 { animation: floatSlow 9s ease-in-out infinite 1s; }
+      .pulsing-orb { animation: pulseGlow 4s ease-in-out infinite; }
+      .animated-path { stroke-dasharray: 10, 10; animation: dashMove 20s linear infinite; }
+    </style>
+  </defs>
+
+  <!-- Base Background -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Background Grid/Network Mesh -->
+  <g opacity="0.12">
+    <path d="M 0,60 L 1200,60 M 0,120 L 1200,120 M 0,180 L 1200,180 M 0,240 L 1200,240 M 0,300 L 1200,300" stroke="#94a3b8" stroke-width="1"/>
+    <path d="M 150,0 L 150,360 M 300,0 L 300,360 M 450,0 L 450,360 M 600,0 L 600,360 M 750,0 L 750,360 M 900,0 L 900,360 M 1050,0 L 1050,360" stroke="#94a3b8" stroke-width="1"/>
+  </g>
+
+  <!-- Ambient Glowing Orbs (Background Dynamic Elements) -->
+  <circle cx="150" cy="90" r="180" fill="url(#glowGrad)" class="pulsing-orb"/>
+  <circle cx="1050" cy="270" r="200" fill="url(#glowGrad)" class="pulsing-orb" style="animation-delay: 2s;"/>
+
+  <!-- Dynamic Decorative Nodes/Pills (Background Side Accent Cards) -->
+  <g class="floating-card-1" filter="url(#dropShadow)">
+    <rect x="860" y="55" width="260" height="75" rx="12" fill="url(#cardGrad)" stroke="#6366f1" stroke-opacity="0.4" stroke-width="1.5"/>
+    <circle cx="895" cy="92" r="16" fill="#6366f1" fill-opacity="0.2"/>
+    <path d="M 889 92 L 893 96 L 901 88" stroke="#818cf8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="925" y="88" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#f8fafc">Universal Artifacts</text>
+    <text x="925" y="106" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">NuGet • npm • PyPI • Cargo</text>
+  </g>
+
+  <g class="floating-card-2" filter="url(#dropShadow)">
+    <rect x="890" y="165" width="240" height="70" rx="12" fill="url(#cardGrad)" stroke="#ec4899" stroke-opacity="0.4" stroke-width="1.5"/>
+    <circle cx="920" cy="200" r="16" fill="#ec4899" fill-opacity="0.2"/>
+    <text x="914" y="205" font-family="sans-serif" font-size="16" fill="#f472b6">⚡</text>
+    <text x="948" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#f8fafc">DevOps &amp; Security</text>
+    <text x="948" y="213" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">Supply Chain Sovereign</text>
+  </g>
+
+  <!-- Connecting Node Lines -->
+  <path d="M 800 130 Q 840 100 860 92" stroke="url(#accentGrad)" stroke-width="2" fill="none" class="animated-path" opacity="0.6"/>
+  <path d="M 810 210 Q 850 200 890 200" stroke="url(#accentGrad)" stroke-width="2" fill="none" class="animated-path" opacity="0.6"/>
+
+  <!-- Foreground Main Header (Strictly Layered Top for Visibility) -->
+  <!-- Top Badge Pill -->
+  <g filter="url(#dropShadow)">
+    <rect x="70" y="48" width="310" height="34" rx="17" fill="url(#accentGrad)" opacity="0.2"/>
+    <rect x="70" y="48" width="310" height="34" rx="17" fill="none" stroke="url(#accentGrad)" stroke-width="1.5"/>
+    <text x="85" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#c084fc" letter-spacing="1.5">CURATED DEVOPS ECOSYSTEM</text>
+  </g>
+
+  <!-- Title & Subtitle in Foreground -->
+  <g filter="url(#dropShadow)">
+    <!-- Main Title -->
+    <text x="68" y="142" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+      Awesome Package Manager
+    </text>
+    <text x="68" y="194" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-size="44" font-weight="800" fill="url(#accentGrad)" letter-spacing="-0.5">
+      .NET &amp; Universal Registry Stack
+    </text>
+
+    <!-- Subtitle -->
+    <text x="70" y="248" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" fill="#cbd5e1" font-weight="400">
+      Comprehensive Directory of Open-Source Registries, SaaS Artifact Managers &amp; Package Tools
+    </text>
+
+    <!-- Feature Tags -->
+    <g transform="translate(70, 276)">
+      <rect x="0" y="0" width="105" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="52" y="17" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#94a3b8">📦 NuGet &amp; .NET</text>
+
+      <rect x="115" y="0" width="115" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="172" y="17" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#94a3b8">🛡️ Supply Chain</text>
+
+      <rect x="240" y="0" width="135" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="307" y="17" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#94a3b8">🚀 Open-Source &amp; SaaS</text>
+    </g>
+  </g>
+
+  <!-- Outer Border -->
+  <rect x="1" y="1" width="1198" height="358" rx="15" fill="none" stroke="#334155" stroke-width="2" opacity="0.5"/>
+</svg>
